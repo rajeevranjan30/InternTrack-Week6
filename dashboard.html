@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="InternTrack authenticated task dashboard."><title>Dashboard | InternTrack</title><link rel="stylesheet" href="css/styles.css"></head>
+<body>
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">I</span> InternTrack</a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a></nav><button class="profile-chip" id="logoutBtn" type="button">Sign out</button></header>
+<main class="dashboard container">
+<section class="dash-top"><div><span class="eyebrow">MY INTERNSHIP</span><h1 id="welcomeTitle">Your dashboard <span>👋</span></h1><p id="accountSummary">Loading your authenticated workspace…</p></div><button class="btn" id="refreshBtn" type="button">Refresh data ↻</button></section>
+<section class="stat-grid" aria-label="Internship summary">
+<article class="stat-card"><span>COMPLETION</span><strong id="completionStat">0%</strong><div class="progress"><i id="completionBar" style="width:0%"></i></div><small id="completionText">0 of 0 tasks completed</small></article>
+<article class="stat-card"><span>TOTAL TASKS</span><strong id="totalStat">0</strong><small id="dueStat">Create your first task</small></article>
+<article class="stat-card"><span>API STATUS</span><strong id="apiStat">—</strong><small id="apiDetail">Checking backend…</small></article>
+</section>
+<section class="dashboard-grid">
+<div class="panel tasks-panel"><div class="panel-head"><div><h2>My tasks</h2><p>Tasks are loaded from MongoDB through the protected API.</p></div><label class="filter-label" for="filterStatus">Filter <select id="filterStatus"><option value="">All</option><option>Not started</option><option>In progress</option><option>Ready for review</option><option>Completed</option></select></label></div>
+<div id="taskList" aria-live="polite"><p>Loading tasks…</p></div></div>
+<aside class="panel form-panel"><h3>Create a task</h3><p class="form-help">This form calls <code>POST /api/tasks</code>.</p>
+<form id="createTaskForm"><label for="taskTitleInput">Title</label><input id="taskTitleInput" required minlength="3" maxlength="120">
+<label for="taskDescriptionInput">Description</label><textarea id="taskDescriptionInput" required minlength="3" maxlength="2000" rows="4"></textarea>
+<label for="taskCategoryInput">Category</label><input id="taskCategoryInput" maxlength="60" placeholder="Frontend">
+<label for="taskDueDateInput">Due date</label><input id="taskDueDateInput" type="date">
+<label for="taskPriorityInput">Priority</label><select id="taskPriorityInput"><option>low</option><option selected>medium</option><option>high</option></select>
+<button class="btn full" type="submit">Create task</button><p id="createMessage" class="save-message" role="status"></p></form></aside>
+</section>
+</main><footer class="footer"><div class="container"><span>© 2026 InternTrack</span><span>Protected task workspace</span></div></footer><script src="js/app.js"></script></body></html>
