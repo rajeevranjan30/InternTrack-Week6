@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8087/api';
+const API_BASE = 'https://interntrack-week6.onrender.com/api';
 
 function getToken() { return localStorage.getItem('interntrackToken'); }
 function getUser() {
